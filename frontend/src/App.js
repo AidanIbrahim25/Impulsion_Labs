@@ -1,23 +1,23 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Feedback from './pages/Feedback';
-
-const App = () => {
-  const containerStyle = { display: 'flex', flexDirection: 'column', height: '100vh', backgroundColor: '#f3f4f6' };
+import Layout from './components/Layout/Layout';
+import Overview from './pages/Overview';
+import CaseReports from './pages/CaseReports';
+import TrendsInsights from './pages/TrendsInsights';
+import ReportsGenerator from './pages/ReportsGenerator';
+import CitizenTransparency from './pages/CitizenTransparency';
 
   return (
     <Router>
-      <div style={containerStyle}>
-        <Header />
-        <div style={{ flex: 1, overflowY: 'auto' }}>
-          <Routes>
-            <Route path="/feedback" element={<Feedback />} />
-          </Routes>
-        </div>
-        <Footer />
-      </div>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Overview />} />
+          <Route path="/case-reports" element={<CaseReports />} />
+          <Route path="/trends" element={<TrendsInsights />} />
+          <Route path="/reports-generator" element={<ReportsGenerator />} />
+          <Route path="/citizen-transparency" element={<CitizenTransparency />} />
+        </Routes>
+      </Layout>
     </Router>
   );
 };
