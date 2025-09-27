@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout/Layout';
+import Overview from './pages/Overview';
+import CaseReports from './pages/CaseReports';
+import TrendsInsights from './pages/TrendsInsights';
+import ReportsGenerator from './pages/ReportsGenerator';
+import CitizenTransparency from './pages/CitizenTransparency';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Overview />} />
+          <Route path="/case-reports" element={<CaseReports />} />
+          <Route path="/trends" element={<TrendsInsights />} />
+          <Route path="/reports-generator" element={<ReportsGenerator />} />
+          <Route path="/citizen-transparency" element={<CitizenTransparency />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 
