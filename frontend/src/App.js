@@ -7,6 +7,7 @@ import TrendsInsights from './pages/TrendsInsights';
 import ReportsGenerator from './pages/ReportsGenerator';
 import CitizenTransparency from './pages/CitizenTransparency';
 
+const App = () => {
   return (
     <Router>
       <Layout>
