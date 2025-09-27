@@ -1,28 +1,25 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import CrimeReport from './pages/CrimeReport';
-import Dashboard from './pages/Dashboard';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Feedback from './pages/Feedback';
 
-function App() {
+const App = () => {
+  const containerStyle = { display: 'flex', flexDirection: 'column', height: '100vh', backgroundColor: '#f3f4f6' };
+
   return (
     <Router>
-      <nav>
-        <Link to="/">Home</Link> |{" "}
-        <Link to="/about">About</Link> |{" "}
-        <Link to="/report">Report Crime</Link> |{" "}
-        <Link to="/dashboard">Dashboard</Link>
-      </nav>
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/report" element={<CrimeReport />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Routes>
+      <div style={containerStyle}>
+        <Header />
+        <div style={{ flex: 1, overflowY: 'auto' }}>
+          <Routes>
+            <Route path="/feedback" element={<Feedback />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
     </Router>
   );
-}
+};
 
 export default App;
